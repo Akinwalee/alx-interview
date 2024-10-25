@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Clear stdout"""
+"""Generator functionality to clear stdout"""
 
 import random
 import sys

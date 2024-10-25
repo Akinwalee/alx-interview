@@ -24,7 +24,7 @@ def process_lines(input_stream):
     counts file sizes and status codes.
 
     Args:
-        input_stream: Stream from which to read lines.
+        input_stream (stdin): Stream from which to read lines.
     """
     total_file_size = 0
     status_codes = {
