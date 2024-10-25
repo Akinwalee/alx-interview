@@ -19,7 +19,8 @@ def print_message(status_codes, total_file_size):
 
 def process_lines(input_stream):
     """
-    Processes lines from the input stream and counts file sizes and status codes.
+    Processes lines from the input stream and
+    counts file sizes and status codes.
 
     Args:
         input_stream: Stream from which to read lines.
@@ -35,7 +36,7 @@ def process_lines(input_stream):
         "405": 0,
         "500": 0,
     }
-    
+
     counter = 0
 
     for line in input_stream:
@@ -43,7 +44,7 @@ def process_lines(input_stream):
         if len(parts) > 2:
             file_size, status_code = int(parts[0]), parts[1]
             total_file_size += file_size
-            
+
             if status_code in status_codes:
                 status_codes[status_code] += 1
 
