@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Generate logs stats"""
+"""Generate logs stats by parsing the logs"""
 
 import sys
 
