@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Generate logs stats"""
 
 import sys
 
@@ -13,7 +14,7 @@ def print_message(status_codes, total_file_size):
     """
     print(f"File size: {total_file_size}")
     for code, count in sorted(status_codes.items()):
-        if count:
+        if count != 0:
             print(f"{code}: {count}")
 
 
@@ -42,7 +43,9 @@ def process_lines(input_stream):
     for line in input_stream:
         parts = line.split()
         if len(parts) > 2:
-            file_size, status_code = int(parts[0]), parts[1]
+            file_size = int(parts[0])
+            status_code = parts[1]
+
             total_file_size += file_size
 
             if status_code in status_codes:
@@ -61,6 +64,7 @@ def main():
     """
     Main function to run the script.
     """
+    status_codes, total_file_size = {}, 0
     try:
         status_codes, total_file_size = process_lines(sys.stdin)
     finally:
