@@ -15,7 +15,7 @@ def print_message(status_codes, total_file_size):
     print(f"File size: {total_file_size}")
     for code, count in sorted(status_codes.items()):
         if count != 0:
-            print(f"{code}: {count}")
+            print(f"{code}: {count}")    
 
 
 def process_lines(input_stream):
@@ -42,16 +42,19 @@ def process_lines(input_stream):
 
     for line in input_stream:
         parts = line.split()
+        parts = parts[::-1]
+
         if len(parts) > 2:
-            file_size = int(parts[0])
-            status_code = parts[1]
-
-            total_file_size += file_size
-
-            if status_code in status_codes:
-                status_codes[status_code] += 1
-
             counter += 1
+
+            if counter <=10:
+                file_size = int(parts[0])
+                status_code = parts[1]
+
+                total_file_size += file_size
+
+            if status_code in status_codes.key():
+                status_codes[status_code] += 1
 
             if counter == 10:
                 print_message(status_codes, total_file_size)
