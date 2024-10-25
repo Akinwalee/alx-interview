@@ -62,7 +62,7 @@ try:
                 counter = 0
 
 finally:
-        print_message(status_codes, total_file_size)
+    print_message(status_codes, total_file_size)
 
 # def main():
 #     """
