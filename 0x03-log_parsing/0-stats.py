@@ -18,28 +18,29 @@ def print_message(status_codes, total_file_size):
             print(f"{code}: {count}")
 
 
-def process_lines(input_stream):
-    """
-    Processes lines from the input stream and
-    counts file sizes and status codes.
+# def process_lines(input_stream):
+#     """
+#     Processes lines from the input stream and
+#     counts file sizes and status codes.
 
-    Args:
-        input_stream: Stream from which to read lines.
-    """
-    total_file_size = 0
-    status_codes = {
-        "200": 0,
-        "301": 0,
-        "400": 0,
-        "401": 0,
-        "403": 0,
-        "404": 0,
-        "405": 0,
-        "500": 0,
-    }
+#     Args:
+#         input_stream: Stream from which to read lines.
+#     """
+total_file_size = 0
+status_codes = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0,
+}
 
-    counter = 0
+counter = 0
 
+try:
     for line in input_stream:
         parts = line.split()
         parts = parts[::-1]
@@ -60,19 +61,19 @@ def process_lines(input_stream):
                 print_message(status_codes, total_file_size)
                 counter = 0
 
-    return status_codes, total_file_size
-
-
-def main():
-    """
-    Main function to run the script.
-    """
-    status_codes, total_file_size = {}, 0
-    try:
-        status_codes, total_file_size = process_lines(sys.stdin)
-    finally:
+finally:
         print_message(status_codes, total_file_size)
 
+# def main():
+#     """
+#     Main function to run the script.
+#     """
+#     status_codes, total_file_size = {}, 0
+#     try:
+#         status_codes, total_file_size = process_lines(sys.stdin)
+#     finally:
+#         print_message(status_codes, total_file_size)
 
-if __name__ == "__main__":
-    main()
+
+# if __name__ == "__main__":
+#     main()
