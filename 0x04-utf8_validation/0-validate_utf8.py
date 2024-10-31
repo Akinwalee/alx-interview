@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 UTF-8 validation
 """
@@ -32,4 +32,3 @@ def validUTF8(data):
             num_bytes -= 1
 
     return num_bytes == 0
-    
