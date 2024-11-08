@@ -12,7 +12,7 @@ def main():
     """
     if len(sys.argv) != 2:
         print_usage_and_exit()
-    
+
     try:
         N = int(sys.argv[1])
     except ValueError:
@@ -28,6 +28,7 @@ def main():
     for solution in solutions:
         print(solution)
 
+
 def solve_nqueens(N):
     """
     Backtracking function to find all possible solutions.
@@ -39,7 +40,7 @@ def solve_nqueens(N):
         if row == N:
             solutions.append([[i, board[i]] for i in range(N)])
             return
-        
+
         for col in range(N):
             if is_safe(board, row, col, N):
                 board[row] = col
@@ -47,16 +48,18 @@ def solve_nqueens(N):
                 board[row] = -1  # Reset for backtracking
 
     solutions = []
-    board = [-1] * N  # board[row] = column where the queen is placed
+    board = [-1] * N  # board[row] is the column where the queen is placed
     backtrack(0, board, solutions)
     return solutions
 
 # Helpers
 
+
 def print_usage_and_exit():
     """Print usage message and exit."""
     print("Usage: nqueens N")
     sys.exit(1)
+
 
 def is_safe(board, row, col, N):
     """
@@ -66,6 +69,7 @@ def is_safe(board, row, col, N):
         if board[i] == col or abs(board[i] - col) == row - i:
             return False
     return True
+
 
 if __name__ == "__main__":
     main()
