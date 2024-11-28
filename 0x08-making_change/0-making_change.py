@@ -8,7 +8,6 @@ def makeChange(coins, total):
     arr = [float('inf')] * (total + 1)
     arr[0] = 0
 
-
     for i in range(1, total + 1):
         for coin in coins:
             if i - coin >= 0:
