@@ -1,7 +1,13 @@
 #!/usr/bin/python3
+"""
+Coin Change problem
+"""
+
 
 def makeChange(coins, total):
-
+    """
+    Solving the coin change problem dynamic programming
+    """
     if total <= 0:
         return 0
 
