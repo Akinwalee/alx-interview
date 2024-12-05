@@ -8,16 +8,15 @@ def island_perimeter(grid):
     """
     FInd the perimeter of an island
     """
-    if len(grid) < 3:
-        return 0
     perimeter = 0
-    for i in range(1, len(grid) - 1):
+    n = len(grid)
+    for i in range(n):
         w = len(grid[i])
-        for j in range(1, w - 1):
+        for j in range(w):
             if grid[i][j] == 1:
-                perimeter += 1 if grid[i - 1][j] == 0 else 0
-                perimeter += 1 if grid[i + 1][j] == 0 else 0
-                perimeter += 1 if grid[i][j - 1] == 0 else 0
-                perimeter += 1 if grid[i][j + 1] == 0 else 0
+                perimeter += 1 if i == 0 or grid[i - 1][j] == 0 else 0
+                perimeter += 1 if i == n - 1 or grid[i + 1][j] == 0 else 0
+                perimeter += 1 if j == 0 or grid[i][j - 1] == 0 else 0
+                perimeter += 1 if j == w - 1 or grid[i][j + 1] == 0 else 0
 
     return perimeter
