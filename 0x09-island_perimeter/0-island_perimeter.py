@@ -8,8 +8,6 @@ def island_perimeter(grid):
     """
     FInd the perimeter of an island
     """
-    if type(grid) != list:
-        return 0
     perimeter = 0
     for i in range(1, len(grid) - 1):
         w = len(grid[i])
