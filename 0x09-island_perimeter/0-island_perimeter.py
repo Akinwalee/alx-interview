@@ -6,7 +6,7 @@ Finding the Perimeter of an island in a grid
 
 def island_perimeter(grid):
     """
-    FInd the perimeter of an island
+    FInd the perimeter of an island with no lakes
     """
     perimeter = 0
     n = len(grid)
