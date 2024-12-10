@@ -31,11 +31,13 @@ def getPrimes(num: int) -> int:
     """
 
     primes = [True for i in range(num + 1)]
-    primes[0] = primes[1] = False
+    p = 2
 
-    for p in range(2, int(num ** 0.5) + 1):
+    while (p * p <= num):
         if primes[p]:
             for i in range(p * p, num + 1, p):
                 primes[i] = False
+
+        p += 1
 
     return sum(primes)
