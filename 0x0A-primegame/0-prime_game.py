@@ -12,9 +12,7 @@ def isWinner(x, nums):
     for num in nums:
         n = getPrimes(num)
 
-        if n == 0:
-            continue
-        elif n % 2:
+        if n % 2:
             score[0] += 1
         else:
             score[1] += 1
