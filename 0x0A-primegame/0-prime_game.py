@@ -12,7 +12,9 @@ def isWinner(x, nums):
     for num in nums:
         n = getPrimes(num)
 
-        if n % 2:
+        if n == 0:
+            continue
+        elif n % 2:
             score[0] += 1
         else:
             score[1] += 1
@@ -31,17 +33,11 @@ def getPrimes(num: int) -> int:
     """
 
     primes = [True for i in range(num + 1)]
-    p = 2
-    while (p * p <= num):
-        if primes[p] is True:
+    primes[0] = primes[1] = False
+
+    for p in range(2, int(num ** 0.5) + 1):
+        if primes[p]:
             for i in range(p * p, num + 1, p):
                 primes[i] = False
 
-        p += 1
-
-    count = 0
-    for p in primes:
-        if p:
-            count += 1
-
-    return count
+    return sum(primes)
